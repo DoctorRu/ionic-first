@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { UserPage} from "./user/user";
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {UserPage} from "./user/user";
 
 @Component({
   selector: 'page-users',
@@ -8,12 +8,18 @@ import { UserPage} from "./user/user";
 })
 
 export class UsersPage {
-  constructor (private navCtrl: NavController) {
+  constructor(private navCtrl: NavController) {
 
   }
 
   onLoadUser(name: string) {
-    this.navCtrl.push(UserPage,  {userName: name});
+    this.navCtrl.push(UserPage, {userName: name});
+  }
+
+  ionViewCanEnter(): boolean | Promise<boolean> {
+    console.log('IonViewCanEnter');
+    const rnd = Math.random();
+    return rnd > 0.5;
   }
 
 }

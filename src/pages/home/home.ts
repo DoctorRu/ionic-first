@@ -8,16 +8,28 @@ import { ShopPage } from "../shop/shop";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  usersPage = UsersPage;
+  buyPage = ShopPage;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private navCtrl: NavController) {
 
   }
+  //
+  // onGoToUsers() {
+  //   this.navCtrl.push(this.usersPage)
+  //     .then((msg) => console.log('Access granted: ') + msg)
+  //     .catch((error) => console.log('Access denied, Argument was ' + error));
+  // }
+  //
+
+
 
   onGoToUsers() {
-    this.navCtrl.push(UsersPage);
+    this.navCtrl.push(this.usersPage)
+      .then((msg) => msg ? console.log('Access granted: ' + msg)
+                                  : console.log('Access granted: ' + msg))
   }
-
-  onGoToShop() {
-    this.navCtrl.push(ShopPage);
-  }
+  // onGoToShop() {
+  //   this.navCtrl.push(ShopPage);
+  // }
 }
